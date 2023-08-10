@@ -1,59 +1,5 @@
-# import os
 import numpy as np
-# import PyPDF2
 import torch
-# from transformers import BertTokenizer, BertModel
-# from sklearn.metrics.pairwise import cosine_similarity
-
-# # Set the path to your folder of PDF files and your description
-# folder_path = './data'
-# description = 'NextJs Tailwind Css Typescript Git & Github Good understanding of UI/UXResponsiveness (mobile view for websites'
-
-# # Load the BERT tokenizer and model
-# tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-# model = BertModel.from_pretrained('bert-base-uncased')
-
-# # Preprocess your description
-# description_tokens = tokenizer.encode(description, add_special_tokens=True)
-# description_input_ids = torch.tensor([description_tokens])
-# with torch.no_grad():
-#     description_output = model(description_input_ids)
-# description_embedding = description_output[0][:,0,:].numpy()
-
-# # Initialize a list to store the similarity scores for each PDF file
-# similarity_scores = []
-
-# # Loop through each PDF file in the folder
-# for filename in os.listdir(folder_path):
-#     if filename.endswith('.pdf'):
-#         # Extract text from the PDF file
-#         pdf_file = open(os.path.join(folder_path, filename), 'rb')
-#         pdf_reader = PyPDF2.PdfReader(pdf_file)
-#         pdf_text = ''
-#         for page in range(len(pdf_reader.pages)):
-#             page_obj = pdf_reader.pages[page]
-#             pdf_text += page_obj.extract_text()
-#         pdf_file.close()
-
-#         # Preprocess the PDF text
-#         pdf_tokens = tokenizer.encode(pdf_text, add_special_tokens=True)
-#         pdf_input_ids = torch.tensor([pdf_tokens])
-#         with torch.no_grad():
-#             pdf_output = model(pdf_input_ids)
-#         pdf_embedding = pdf_output[0][:,0,:].numpy()
-
-#         # Calculate the similarity between the description and the PDF text
-#         similarity = cosine_similarity(description_embedding, pdf_embedding)[0][0]
-#         similarity_scores.append((filename, similarity))
-
-# # Sort the PDF files by their similarity scores
-# similarity_scores.sort(key=lambda x: x[1], reverse=True)
-
-# # Print the ranked list of PDF files
-# for filename, similarity in similarity_scores:
-#     print(f'{filename}: {similarity}')
-
-
 import os
 import PyPDF2
 from transformers import BertTokenizer, BertModel

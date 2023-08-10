@@ -1,0 +1,5 @@
+numpy
+torch
+PyPDF2
+transformers
+scikit-learn
